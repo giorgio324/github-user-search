@@ -21,6 +21,7 @@ const Wrapper = styled.section`
   align-items: center;
   background-color: ${({ theme }) => theme.backgroundColors.primary};
   font-family: ${({ theme }) => theme.fonts.primary};
+  transition: ${({ theme }) => theme.transition};
   div {
     display: flex;
     flex-direction: column;
@@ -34,6 +35,7 @@ const Wrapper = styled.section`
     text-align: center;
     margin: 2rem 0;
     font-size: 35px;
+    color: ${({ theme }) => theme.fontColors.primary};
   }
 `;
 export default Login;

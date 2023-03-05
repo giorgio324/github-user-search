@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './Components/GlobalStyles/Global';
+import { GithubContext } from './Context/context';
 import Dashboard from './Pages/Dashboard';
 import Error from './Pages/Error';
 import Login from './Pages/Login';
@@ -8,14 +10,30 @@ const lightTheme = {
   backgroundColors: {
     primary: '#ebfbff',
   },
-  fontColors: {},
+  fontColors: {
+    primary: 'black',
+  },
   fonts: {
     primary: "'Poppins', sans-serif;",
   },
+  transition: 'background-color 0.5s ease-in-out',
+};
+const darkTheme = {
+  backgroundColors: {
+    primary: '#333',
+  },
+  fontColors: {
+    primary: 'white',
+  },
+  fonts: {
+    primary: "'Poppins', sans-serif;",
+  },
+  transition: 'background-color 0.5s ease-in-out',
 };
 function App() {
+  const { changeToDarkTheme } = useContext(GithubContext);
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={changeToDarkTheme ? lightTheme : darkTheme}>
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
