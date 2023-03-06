@@ -33,6 +33,4 @@ export const StyledCard = styled.article`
     margin-bottom: 0;
     text-transform: capitalize;
   }
-  @media (min-width: 546px) {
-  }
 `;

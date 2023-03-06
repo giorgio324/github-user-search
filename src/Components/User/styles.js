@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledUser = styled.section`
-  display: flex;
   width: 90vw;
   max-width: 1180px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
   margin: 0 auto;
+  display: grid;
   padding: 2rem 0;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 `;

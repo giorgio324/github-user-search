@@ -6,5 +6,4 @@ export const StyledInfoCards = styled.section`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
-  gap: 1rem 2rem;
 `;

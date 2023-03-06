@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const StyledUserCard = styled.section`
-  margin: 0 1rem;
+  margin: 1rem;
   padding: 1rem;
   background-color: ${({ theme }) => theme.backgroundColors.card};
   border-radius: 8px;
-  width: 500px;
+  min-height: 300px;
+
   header img {
     width: 70px;
     height: 70px;
@@ -57,9 +58,24 @@ export const StyledUserCard = styled.section`
   }
   div {
     max-width: 85%;
+
     word-break: normal;
   }
   div p {
     width: 100%;
+    margin: 0.75rem 0;
+  }
+  @media screen and (max-width: 544px) {
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header a {
+      margin: 0.5rem 0;
+    }
+    header div {
+      margin: 0.5rem 0;
+    }
   }
 `;

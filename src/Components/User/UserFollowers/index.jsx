@@ -11,6 +11,10 @@ const UserFollowers = () => {
         return (
           <article key={index}>
             <img src={image} alt={login} />
+            <div>
+              <h4>{login}</h4>
+              <a href={html_url}>{html_url}</a>
+            </div>
           </article>
         );
       })}

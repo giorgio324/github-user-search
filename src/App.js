@@ -8,8 +8,8 @@ import Error from './Pages/Error';
 import Login from './Pages/Login';
 const lightTheme = {
   backgroundColors: {
-    body: '#B4E4FF',
-    card: '#FFF7AE',
+    body: '#F7F1E5',
+    card: '#CFB997',
   },
   fontColors: {
     primary: 'black',
