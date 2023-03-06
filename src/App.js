@@ -8,7 +8,8 @@ import Error from './Pages/Error';
 import Login from './Pages/Login';
 const lightTheme = {
   backgroundColors: {
-    primary: '#ebfbff',
+    body: '#B4E4FF',
+    card: '#FFF7AE',
   },
   fontColors: {
     primary: 'black',
@@ -20,7 +21,8 @@ const lightTheme = {
 };
 const darkTheme = {
   backgroundColors: {
-    primary: '#333',
+    body: '#333',
+    card: '#F9F3F3',
   },
   fontColors: {
     primary: 'white',
@@ -33,7 +35,7 @@ const darkTheme = {
 function App() {
   const { changeToDarkTheme } = useContext(GithubContext);
   return (
-    <ThemeProvider theme={changeToDarkTheme ? lightTheme : darkTheme}>
+    <ThemeProvider theme={changeToDarkTheme ? darkTheme : lightTheme}>
       <GlobalStyles />
       <BrowserRouter>
         <Routes>

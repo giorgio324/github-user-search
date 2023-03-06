@@ -1,18 +1,22 @@
 import React, { useContext } from 'react';
 import Navbar from '../Components/Navbar';
 import Search from '../Components/Search';
-import UserCard from '../Components/UserCard';
+import InfoCards from '../Components/InfoCards';
 import { GithubContext } from '../Context/context';
-
+import styled from 'styled-components';
 const Dashboard = () => {
   const { setChangeToDarkTheme, changeToDarkTheme } = useContext(GithubContext);
   return (
-    <main>
+    <Wrapper>
       <Navbar />
       <Search />
-      <UserCard />
-    </main>
+      <InfoCards />
+    </Wrapper>
   );
 };
 
 export default Dashboard;
+
+const Wrapper = styled.main`
+  background-color: ${({ theme }) => theme.backgroundColors.body};
+`;

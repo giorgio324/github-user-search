@@ -19,7 +19,7 @@ const Wrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.backgroundColors.primary};
+  background-color: ${({ theme }) => theme.backgroundColors.body};
   font-family: ${({ theme }) => theme.fonts.primary};
   transition: ${({ theme }) => theme.transition};
   div {

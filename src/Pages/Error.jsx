@@ -23,7 +23,7 @@ const Wrapper = styled.section`
   align-items: center;
   flex-direction: column;
   font-family: ${({ theme }) => theme.fonts.primary};
-  background-color: ${({ theme }) => theme.backgroundColors.primary};
+  background-color: ${({ theme }) => theme.backgroundColors.body};
   transition: ${({ theme }) => theme.transition};
   h2 {
     font-size: 40px;
