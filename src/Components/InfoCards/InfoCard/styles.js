@@ -1,37 +1,38 @@
 import styled from 'styled-components';
 export const StyledCard = styled.article`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  column-gap: 2rem;
-  width: 245px;
-  padding: 1.25rem 0;
   border-radius: 8px;
-  transition: all 0.3s linear;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2.5rem;
+  align-items: center;
   background-color: ${({ theme }) => theme.backgroundColors.card};
   margin: 1rem;
+  width: 90%;
   span {
     color: ${(props) => props.color || 'black'};
-    padding: 0.5rem;
-    width: 45px;
-    height: 45px;
+    width: 3rem;
+    height: 3rem;
+    display: grid;
+    place-items: center;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: ${(props) => props.bgColor};
   }
   span svg {
-    width: auto;
-    height: 85%;
+    font-size: 1.5rem;
   }
   div {
     width: 75px;
     text-align: center;
   }
   div h3 {
+    margin-bottom: 0;
+    letter-spacing: 0;
   }
   div p {
+    margin-bottom: 0;
+    text-transform: capitalize;
+  }
+  @media (min-width: 546px) {
   }
 `;
