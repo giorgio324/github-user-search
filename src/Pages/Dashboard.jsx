@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Navbar from '../Components/Navbar';
 import Search from '../Components/Search';
 import InfoCards from '../Components/InfoCards';
+import User from '../Components/User';
 import { GithubContext } from '../Context/context';
 import styled from 'styled-components';
 const Dashboard = () => {
@@ -11,6 +12,7 @@ const Dashboard = () => {
       <Navbar />
       <Search />
       <InfoCards />
+      <User />
     </Wrapper>
   );
 };

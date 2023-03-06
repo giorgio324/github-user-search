@@ -5,8 +5,8 @@ export const StyledCard = styled.article`
   justify-content: center;
   flex-wrap: wrap;
   column-gap: 2rem;
-  width: 265px;
-  padding: 1.5rem 0;
+  width: 245px;
+  padding: 1.25rem 0;
   border-radius: 8px;
   transition: all 0.3s linear;
   background-color: ${({ theme }) => theme.backgroundColors.card};
