@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import { userData } from '../Data/staticDataUser';
 import { userFollowers } from '../Data/staticDataFollowers';
 import { userRepos } from '../Data/staticDataRepos';
+import axios from 'axios';
 export const GithubContext = createContext();
 
 export const GithubProvider = ({ children }) => {
@@ -17,6 +18,27 @@ export const GithubProvider = ({ children }) => {
   const [githubUser, setGithubUser] = useState(userData);
   const [followers, setFollowers] = useState(userFollowers);
   const [repos, setRepos] = useState(userRepos);
+  const [remainingRequest, setRemeiningRequest] = useState(0);
+  const [loading, setLoading] = useState(0);
+  const [error, setError] = useState({ show: false, msg: '' });
+  const checkRemainingRequests = async () => {
+    try {
+      const response = axios(`https://api.github.com/rate_limit`);
+      const rate = (await response).data.rate.remaining;
+      setRemeiningRequest(rate);
+      if (rate === 0) {
+        toggleError(true, 'request limit reached check again in 1 hour');
+      }
+    } catch (error) {}
+  };
+
+  const toggleError = (show, msg) => {
+    setError({ show, msg });
+  };
+  useEffect(() => {
+    checkRemainingRequests();
+  }, []);
+
   return (
     <GithubContext.Provider
       value={{
@@ -25,6 +47,8 @@ export const GithubProvider = ({ children }) => {
         repos,
         followers,
         githubUser,
+        remainingRequest,
+        error,
       }}
     >
       {children}

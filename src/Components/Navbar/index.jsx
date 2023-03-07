@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Navbar = () => {
-  return <div>Navbar</div>;
+  return <section>navbar</section>;
 };
 
 export default Navbar;

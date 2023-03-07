@@ -21,4 +21,5 @@ export default Dashboard;
 
 const Wrapper = styled.main`
   background-color: ${({ theme }) => theme.backgroundColors.body};
+  min-height: 100vh;
 `;
