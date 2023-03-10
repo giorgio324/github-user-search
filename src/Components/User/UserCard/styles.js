@@ -53,8 +53,6 @@ export const StyledUserCard = styled.section`
     transform: translateY(0);
   }
   p {
-    max-width: 85%;
-    word-break: normal;
   }
   div {
     max-width: 85%;
@@ -64,6 +62,9 @@ export const StyledUserCard = styled.section`
   div p {
     width: 100%;
     margin: 0.75rem 0;
+  }
+  div p svg {
+    margin: 0 5px;
   }
   @media screen and (max-width: 544px) {
     header {

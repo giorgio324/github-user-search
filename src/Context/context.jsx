@@ -7,10 +7,11 @@ export const GithubContext = createContext();
 
 export const GithubProvider = ({ children }) => {
   const [changeToDarkTheme, setChangeToDarkTheme] = useState(getTheme());
+  // when theme changes save it in local storage
   useEffect(() => {
     localStorage.setItem('dark', JSON.stringify(changeToDarkTheme));
   }, [changeToDarkTheme]);
-
+  // if theme is not changed return false and if it is saved return that theme
   function getTheme() {
     const savedTheme = JSON.parse(localStorage.getItem('dark'));
     return savedTheme || false;
@@ -31,7 +32,18 @@ export const GithubProvider = ({ children }) => {
       }
     } catch (error) {}
   };
-
+  const searchGithubUser = async (user) => {
+    try {
+      const response = await axios(`https://api.github.com/users/${user}`);
+      setGithubUser(response.data);
+      toggleError(false, '');
+      checkRemainingRequests();
+    } catch (error) {
+      console.log(error);
+      toggleError(true, 'this username does not exist');
+      checkRemainingRequests();
+    }
+  };
   const toggleError = (show, msg) => {
     setError({ show, msg });
   };
@@ -49,6 +61,7 @@ export const GithubProvider = ({ children }) => {
         githubUser,
         remainingRequest,
         error,
+        searchGithubUser,
       }}
     >
       {children}
@@ -56,8 +69,8 @@ export const GithubProvider = ({ children }) => {
   );
 };
 
-// - [Root Endpoint](https://api.github.com)
-// - [Get User](https://api.github.com/users/giorgio324)
-// - [Repos](https://api.github.com/users/giorgio324/repos?per_page=100)
-// - [Followers](https://api.github.com/users/giorgio324/followers)
-// - [Rate Limit](https://api.github.com/rate_limit)
+// (https://api.github.com)
+// (https://api.github.com/users/giorgio324)
+// (https://api.github.com/users/giorgio324/repos?per_page=100)
+// (https://api.github.com/users/giorgio324/followers)
+// (https://api.github.com/rate_limit)

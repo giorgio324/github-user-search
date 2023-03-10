@@ -3,10 +3,12 @@ import { GithubContext } from '../../Context/context';
 import { StyledError, StyledSearch } from './styles';
 const Search = () => {
   const [user, setUser] = useState('');
-  const { remainingRequest, error } = useContext(GithubContext);
+  const { remainingRequest, error, searchGithubUser } =
+    useContext(GithubContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user) {
+      searchGithubUser(user);
       setUser('');
     }
   };

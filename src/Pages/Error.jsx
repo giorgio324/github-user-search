@@ -1,18 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import errorImg from '../Assets/Images/404.svg';
 import { StyledLink } from '../Components/GlobalStyles/LinkButton';
-import { GithubContext } from '../Context/context';
 const Error = () => {
-  const { setChangeToDarkTheme, changeToDarkTheme } = useContext(GithubContext);
   return (
     <Wrapper>
       <img src={errorImg} alt='' />
       <h2>Sorry, This page was not found</h2>
       <StyledLink to={'/'}>Go Back</StyledLink>
-      <button onClick={() => setChangeToDarkTheme(!changeToDarkTheme)}>
-        dark mode
-      </button>
     </Wrapper>
   );
 };

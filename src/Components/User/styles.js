@@ -7,6 +7,7 @@ export const StyledUser = styled.section`
   display: grid;
   padding: 2rem 0;
   grid-template-columns: 1fr;
+  transition: ${({ theme }) => theme.transition};
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));

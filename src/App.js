@@ -14,6 +14,7 @@ const lightTheme = {
   fontColors: {
     primary: 'black',
     error: '#FF0303',
+    themeIcon: 'yellow',
   },
   fonts: {
     primary: "'Poppins', sans-serif;",
@@ -28,6 +29,7 @@ const darkTheme = {
   fontColors: {
     primary: 'white',
     error: '#FF0303',
+    themeIcon: 'black',
   },
   fonts: {
     primary: "'Poppins', sans-serif;",
