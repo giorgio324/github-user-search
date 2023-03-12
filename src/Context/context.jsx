@@ -20,7 +20,7 @@ export const GithubProvider = ({ children }) => {
   const [followers, setFollowers] = useState(userFollowers);
   const [repos, setRepos] = useState(userRepos);
   const [remainingRequest, setRemeiningRequest] = useState(0);
-  const [loading, setLoading] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState({ show: false, msg: '' });
   const checkRemainingRequests = async () => {
     try {
@@ -33,9 +33,19 @@ export const GithubProvider = ({ children }) => {
     } catch (error) {}
   };
   const searchGithubUser = async (user) => {
+    setLoading(true);
     try {
       const response = await axios(`https://api.github.com/users/${user}`);
       setGithubUser(response.data);
+      const { login, followers_url } = response.data;
+      // finds repos
+      axios(`https://api.github.com/users/${login}/repos?per_page=100`).then(
+        (response) => setRepos(response.data)
+      );
+      // finds repos followers
+      axios(`${followers_url}?per_page=100`).then((response) =>
+        setFollowers(response.data)
+      );
       toggleError(false, '');
       checkRemainingRequests();
     } catch (error) {
@@ -43,6 +53,7 @@ export const GithubProvider = ({ children }) => {
       toggleError(true, 'this username does not exist');
       checkRemainingRequests();
     }
+    setLoading(false);
   };
   const toggleError = (show, msg) => {
     setError({ show, msg });
@@ -62,6 +73,8 @@ export const GithubProvider = ({ children }) => {
         remainingRequest,
         error,
         searchGithubUser,
+        loading,
+        setLoading,
       }}
     >
       {children}
@@ -69,7 +82,6 @@ export const GithubProvider = ({ children }) => {
   );
 };
 
-// (https://api.github.com)
 // (https://api.github.com/users/giorgio324)
 // (https://api.github.com/users/giorgio324/repos?per_page=100)
 // (https://api.github.com/users/giorgio324/followers)

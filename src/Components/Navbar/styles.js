@@ -10,7 +10,7 @@ export const NavWrapper = styled.section`
 `;
 
 export const StyledNav = styled.nav`
-  max-width: 620px;
+  max-width: 680px;
   margin: 0 auto;
   display: flex;
   column-gap: 1rem;
@@ -71,8 +71,9 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledThemeButton = styled.button`
-  font-size: 20px;
+  font-size: 24px;
   background: transparent;
   border: none;
   color: ${({ theme }) => theme.fontColors.themeIcon};
+  cursor: pointer;
 `;

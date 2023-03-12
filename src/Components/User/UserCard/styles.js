@@ -63,6 +63,13 @@ export const StyledUserCard = styled.section`
     width: 100%;
     margin: 0.75rem 0;
   }
+  div a {
+    color: black;
+    margin: 0.75rem 0px;
+  }
+  div a svg {
+    margin: 0px 5px;
+  }
   div p svg {
     margin: 0 5px;
   }
@@ -77,6 +84,12 @@ export const StyledUserCard = styled.section`
     }
     header div {
       margin: 0.5rem 0;
+    }
+    header div h4 {
+      text-align: center;
+    }
+    .twitter {
+      margin: 0;
     }
   }
 `;

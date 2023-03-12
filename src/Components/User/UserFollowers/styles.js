@@ -28,7 +28,12 @@ export const StyledUserFollowers = styled.section`
   & > * {
     margin-bottom: 0.5rem;
   }
-
+  .no-followers {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   article {
     width: 100%;
     display: flex;
@@ -50,6 +55,10 @@ export const StyledUserFollowers = styled.section`
   }
   article div a {
     margin: 0.25rem 0;
+    font-size: 15px;
     color: #888;
+  }
+  @media screen and (max-width: 544px) {
+    min-height: 300px;
   }
 `;

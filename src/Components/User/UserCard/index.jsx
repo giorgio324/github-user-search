@@ -20,7 +20,9 @@ const UserCard = () => {
         <img src={image} alt={name} />
         <div>
           <h4>{name}</h4>
-          <p>{twitter_username ? `@ ${twitter_username}` : ''}</p>
+          <p className='twitter'>
+            {twitter_username ? `@ ${twitter_username}` : ''}
+          </p>
         </div>
         <a href={html_url}>Follow</a>
       </header>
