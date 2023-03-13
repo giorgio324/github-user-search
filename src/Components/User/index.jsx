@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { GithubContext } from '../../Context/context';
+import React from 'react';
 import UserCard from './UserCard';
 import UserFollowers from './UserFollowers';
 import { StyledUser } from './styles';

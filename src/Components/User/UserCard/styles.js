@@ -6,7 +6,9 @@ export const StyledUserCard = styled.section`
   background-color: ${({ theme }) => theme.backgroundColors.card};
   border-radius: 8px;
   min-height: 300px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   header img {
     width: 70px;
     height: 70px;
@@ -72,6 +74,9 @@ export const StyledUserCard = styled.section`
   }
   div p svg {
     margin: 0 5px;
+  }
+  .bio {
+    margin: 0.5rem 0;
   }
   @media screen and (max-width: 544px) {
     header {

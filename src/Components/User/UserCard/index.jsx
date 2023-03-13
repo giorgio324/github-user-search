@@ -26,7 +26,7 @@ const UserCard = () => {
         </div>
         <a href={html_url}>Follow</a>
       </header>
-      <p>{bio}</p>
+      <p className='bio'>{bio}</p>
       <div>
         {company ? (
           <p>

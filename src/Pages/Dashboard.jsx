@@ -7,7 +7,7 @@ import { GithubContext } from '../Context/context';
 import styled from 'styled-components';
 import loadingImg from '../Assets/Images/loading.gif';
 const Dashboard = () => {
-  const { loading, setLoading } = useContext(GithubContext);
+  const { loading } = useContext(GithubContext);
   if (loading) {
     return (
       <Wrapper>

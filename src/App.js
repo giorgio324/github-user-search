@@ -6,6 +6,8 @@ import { GithubContext } from './Context/context';
 import Dashboard from './Pages/Dashboard';
 import Error from './Pages/Error';
 import Login from './Pages/Login';
+import PrivateRoute from './Pages/PrivateRoute';
+import AuthWrapper from './Pages/AuthWrapper';
 const lightTheme = {
   backgroundColors: {
     body: '#F7F1E5',
@@ -39,16 +41,25 @@ const darkTheme = {
 function App() {
   const { changeToDarkTheme } = useContext(GithubContext);
   return (
-    <ThemeProvider theme={changeToDarkTheme ? darkTheme : lightTheme}>
-      <GlobalStyles />
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Dashboard />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='*' element={<Error />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <AuthWrapper>
+      <ThemeProvider theme={changeToDarkTheme ? darkTheme : lightTheme}>
+        <GlobalStyles />
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route path='/login' element={<Login />} />
+            <Route path='*' element={<Error />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </AuthWrapper>
   );
 }
 

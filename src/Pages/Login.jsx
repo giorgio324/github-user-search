@@ -2,17 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import loginImg from '../Assets/Images/login.svg';
 import { LoginLinkBtn } from '../Components/GlobalStyles/LinkButton';
+import { useAuth0 } from '@auth0/auth0-react';
 const Login = () => {
+  const { loginWithRedirect } = useAuth0();
   return (
     <Wrapper>
       <div>
         <img src={loginImg} alt='' />
         <h1>Github User Search</h1>
       </div>
-      <LoginLinkBtn to={'/'}>Login</LoginLinkBtn>
+      <LoginLinkBtn onClick={loginWithRedirect}>Login / Sign Up</LoginLinkBtn>
     </Wrapper>
   );
 };
+
 const Wrapper = styled.section`
   min-height: 100vh;
   display: flex;

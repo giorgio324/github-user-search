@@ -16,7 +16,9 @@ export const StyledNav = styled.nav`
   column-gap: 1rem;
   justify-content: space-between;
   align-items: center;
-
+  .username {
+    font-weight: bold;
+  }
   img {
     width: 40px;
     height: 40px;

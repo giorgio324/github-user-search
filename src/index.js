@@ -3,12 +3,23 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GithubProvider } from './Context/context';
+import { Auth0Provider } from '@auth0/auth0-react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <GithubProvider>
-      <App />
-    </GithubProvider>
+    <Auth0Provider
+      domain='dev-reg5v2l7v6ywcuzb.us.auth0.com'
+      clientId='mnW7Luw8vseS7TSVOSFIlsJT8DTrIbge'
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+      cacheLocation='localstorage'
+    >
+      <GithubProvider>
+        <App />
+      </GithubProvider>
+    </Auth0Provider>
   </React.StrictMode>
 );
 
